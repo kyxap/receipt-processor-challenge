@@ -1,0 +1,59 @@
+plugins {
+    id 'org.springframework.boot' version '3.2.0'
+    id 'java'
+}
+
+group = 'com.receipt.processor.challenge'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    lombokVersion = '1.18.38'
+    javaMainClass = "com.receipt.processor.challenge.ReceiptProcessorApplication"
+}
+
+dependencies {
+    // Main
+    implementation 'org.springframework.boot:spring-boot-starter-web:3.4.4'
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
+
+    implementation("org.springframework.boot:spring-boot:3.4.4")
+    implementation("org.springframework.boot:spring-boot-autoconfigure:3.4.4")
+    implementation 'org.springframework.boot:spring-boot-starter-logging:3.4.4'
+
+    implementation("org.springdoc:springdoc-openapi-ui:1.8.0")
+
+    // Test Only
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:3.4.4'
+
+    // Lombok
+    testAnnotationProcessor "org.projectlombok:lombok:$lombokVersion"
+    annotationProcessor "org.projectlombok:lombok:$lombokVersion"
+    compileOnly "org.projectlombok:lombok:$lombokVersion"
+    testCompileOnly "org.projectlombok:lombok:$lombokVersion"
+}
+
+test {
+    useJUnitPlatform()
+}
+
+tasks.register('testE2E', Test) {
+    useJUnitPlatform {
+        includeTags 'e2e'
+    }
+    shouldRunAfter test
+}
+
+tasks.named('test', Test) {
+    useJUnitPlatform {
+        excludeTags 'e2e'
+    }
+}
+
+
+
