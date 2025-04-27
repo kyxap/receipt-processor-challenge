@@ -24,7 +24,11 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-autoconfigure:3.4.4")
     implementation 'org.springframework.boot:spring-boot-starter-logging:3.4.4'
 
+    // Open-api support, not used
     implementation("org.springdoc:springdoc-openapi-ui:1.8.0")
+
+    //HC for ci/cd
+    implementation("org.springframework.boot:spring-boot-starter-actuator:3.4.5")
 
     // Test Only
     testImplementation platform('org.junit:junit-bom:5.10.0')
