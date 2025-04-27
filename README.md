@@ -2,6 +2,9 @@
 
 Spring Boot webservice that calculates receipt points.
 
+For your convenience, I've added [GitHub workflow](https://github.com/kyxap/receipt-processor-challenge/actions) with all steps
+described below
+
 ## 🔧 Requirements
 
 - Java 17
