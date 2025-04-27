@@ -5,7 +5,7 @@ Spring Boot webservice that calculates receipt points.
 ## 🔧 Requirements
 
 - Java 17
-- Gradle or Docker
+- Docker
 
 ## 🏃 Run Locally
 
