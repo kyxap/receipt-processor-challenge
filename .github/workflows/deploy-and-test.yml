@@ -1,4 +1,4 @@
-name: Build, Deploy, Integration Tests
+name: Build -> Deploy -> Integration Tests
 
 on:
   push:
